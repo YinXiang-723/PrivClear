@@ -307,20 +307,20 @@ class BrowserCleaner:
 
     def clean_chrome_edge_item(self, db_path, table, condition):
         """清理 Chrome 和 Edge 数据库中的记录"""
-        try:
-            conn = sqlite3.connect(db_path)
-            cursor = conn.cursor()
-            sql = f"DELETE FROM {table} WHERE {condition}"
-            print(f"Chrome/Edge: 执行 SQL: {sql}")
-            cursor.execute(sql)
-            conn.commit()
-            if cursor.rowcount == 0:
-                print(f"Chrome/Edge: 未找到匹配的记录: {condition}")
-            else:
-                print(f"Chrome/Edge: 清理完成: {db_path}, 表: {table}, 条件: {condition}")
-            conn.close()
-        except Exception as e:
-            print(f"Chrome/Edge: 清理失败: {db_path}, 错误: {e}")
+        # try:
+        conn = sqlite3.connect(db_path)
+        cursor = conn.cursor()
+        sql = f"DELETE FROM {table} WHERE {condition}"
+        print(f"Chrome/Edge: 执行 SQL: {sql}")
+        cursor.execute(sql)
+        conn.commit()
+        if cursor.rowcount == 0:
+            print(f"Chrome/Edge: 未找到匹配的记录: {condition}")
+        else:
+            print(f"Chrome/Edge: 清理完成: {db_path}, 表: {table}, 条件: {condition}")
+        conn.close()
+        # except Exception as e:
+        #     print(f"Chrome/Edge: 清理失败: {db_path}, 错误: {e}")
 
 
 if __name__ == "__main__":
